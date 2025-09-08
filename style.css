@@ -1,0 +1,167 @@
+/* Font definition */
+@font-face {
+    font-family: "Gabarito";
+    src: url(https://cdn.jsdelivr.net/gh/naipefoundry/gabarito@4a87b46e300cab70cd3d096286bd7e753396a470/fonts/webfonts/Gabarito%5Bwght%5D.woff2) format(woff2);
+}
+
+
+/* Initialisation and reset + variables */
+/* Some code taken from https://www.joshwcomeau.com/css/custom-css-reset */
+:root {
+    font-family: "Gabarito", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    --theme-color: #6666ff;
+    --rgba-theme-color: rgb(from var(--theme-color) r g b / 25%);
+
+    --gap: 10px;
+    --border-radius: calc(var(--gap) / 2);
+}
+
+html {
+    font-size: 1.25em;
+    scroll-behavior: smooth;
+
+    scrollbar-gutter: stable both-edges;
+    scrollbar-color: light-dark(#00000088, #ffffff88) transparent;
+}
+
+* {
+    margin: 0;
+
+    interpolate-size: allow-keywords;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+  line-height: calc(1em + 0.5rem);
+}
+
+
+.bold { font-weight: bold; }
+.italic { font-style: italic; }
+
+hr {
+    color: inherit;
+    border: none;
+    border-top: 2px solid;
+}
+
+:is(:link, :visited):not(:active) {
+    color: light-dark(#0000ee, #9e9eff);
+}
+
+details > summary {
+    font-weight: bold;
+}
+
+
+details::details-content {
+    height: 0;
+    display: block;
+    overflow: hidden;
+    
+    transition: height .3s;
+}
+
+details[open]::details-content {
+    height: fit-content;
+}
+
+
+/* Actual styling */
+html {
+    color-scheme: light dark;
+}
+
+
+body {
+    background-color: var(--rgba-theme-color);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    gap: var(--gap);
+}
+
+body > * {
+    padding-left: var(--gap);
+    padding-right: var(--gap);
+
+    gap: var(--gap);
+}
+
+body > hr {
+    margin: 0 var(--gap);
+}
+
+/* Header and footer */
+.header, .footer {
+    background-color: var(--rgba-theme-color);
+
+    margin: 0 var(--gap);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+.header {
+    padding: calc(var(--gap) * 2.5);
+    border-radius: 0 0 var(--gap) var(--gap);
+
+    text-align: center;
+}
+
+.footer {
+    padding: calc(var(--gap) * 1.5);
+    border-radius: var(--gap) var(--gap) 0 0;
+
+    color: rgb(from light-dark(#000000, #ffffff) r g b / 0.5);
+
+    font-size: .85rem;
+}
+
+/* Main section */
+.main-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    gap: var(--gap);
+}
+
+.main-subsection {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    
+    gap: calc(var(--gap) / 2);
+}
+
+/* Cards */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(17.5rem, 100%), 1fr));
+    gap: var(--gap);
+}
+
+.card {
+    background-color: var(--rgba-theme-color);
+    padding: var(--gap);
+    border-radius: calc(var(--gap) / 2);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    gap: var(--gap);
+}
