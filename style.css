@@ -54,6 +54,7 @@ hr {
 }
 
 details > summary {
+    cursor: pointer;
     font-weight: bold;
 }
 
