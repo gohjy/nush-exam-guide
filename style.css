@@ -22,7 +22,7 @@ html {
     scroll-behavior: smooth;
 
     scrollbar-gutter: stable both-edges;
-    scrollbar-color: light-dark(#00000088, #ffffff88) transparent;
+    scrollbar-color: light-dark(#00000066, #ffffff66) transparent;
 }
 
 * {
